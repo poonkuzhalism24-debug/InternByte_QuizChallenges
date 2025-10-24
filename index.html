@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Challenge Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Academic Challenge Quiz</h1>
+            <div class="score-container">
+                <span id="current-question">Question 1</span>
+                <span id="score">Score: 0</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="start-content">
+                    <h2>Welcome to the Academic Challenge!</h2>
+                    <p>Test your knowledge with 5 challenging questions covering probability, grammar, and statistics.</p>
+                    <p>Choose the best answer for each question.</p>
+                    <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                
+                <div class="question-container">
+                    <h2 id="question-text">Question will appear here</h2>
+                    <div id="options-container" class="options-container">
+                        <!-- Options will be dynamically generated -->
+                    </div>
+                </div>
+
+                <div class="quiz-controls">
+                    <button id="next-btn" class="btn btn-secondary" disabled>Next Question</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <!-- Confetti Animation -->
+                <div id="confetti-container" class="confetti-container"></div>
+                
+                <div class="results-content">
+                    <!-- Achievement Badge -->
+                    <div class="achievement-badge">
+                        <div id="achievement-icon" class="achievement-icon">🏆</div>
+                        <div id="achievement-title" class="achievement-title">Quiz Master!</div>
+                    </div>
+                    
+                    <h2>🎊 Quiz Complete! 🎊</h2>
+                    
+                    <!-- Circular Score Display -->
+                    <div class="score-circle-container">
+                        <div class="score-circle">
+                            <svg class="score-ring" width="200" height="200">
+                                <defs>
+                                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="score-ring-bg" cx="100" cy="100" r="80" />
+                                <circle id="score-ring-progress" class="score-ring-progress" cx="100" cy="100" r="80" />
+                            </svg>
+                            <div class="score-content">
+                                <div class="final-score">
+                                    <span id="final-score">0</span> / <span id="total-questions">5</span>
+                                </div>
+                                <div class="score-label">Correct</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p id="performance-message">Great job!</p>
+                    
+                    <!-- Enhanced Results Grid -->
+                    <div class="results-grid">
+                        <div class="result-card points-card">
+                            <div class="card-icon">⭐</div>
+                            <div class="card-value" id="points-earned">0</div>
+                            <div class="card-label">Points</div>
+                        </div>
+                        <div class="result-card correct-card">
+                            <div class="card-icon">✅</div>
+                            <div class="card-value" id="correct-count">0</div>
+                            <div class="card-label">Correct</div>
+                        </div>
+                        <div class="result-card wrong-card">
+                            <div class="card-icon">❌</div>
+                            <div class="card-value" id="wrong-count">0</div>
+                            <div class="card-label">Wrong</div>
+                        </div>
+                        <div class="result-card accuracy-card">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-value" id="accuracy">0%</div>
+                            <div class="card-label">Accuracy</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Stats -->
+                    <div class="performance-stats">
+                        <div class="stat-bar">
+                            <div class="stat-label">Performance</div>
+                            <div class="stat-progress">
+                                <div id="performance-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="restart-btn" class="btn btn-primary">🔄 Play Again</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
